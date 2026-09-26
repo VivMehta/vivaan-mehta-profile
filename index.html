@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vivaan Mehta — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#161a22;
+    --paper:#e9ece4;
+    --panel:#dfe3d8;
+    --brass:#a9832e;
+    --rust:#7c4a3b;
+    --forest:#3e5c4e;
+    --line:#b9beac;
+    --muted:#5b6058;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;}
+  a{color:inherit;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+
+  /* ---- Header / Hero ---- */
+  header.site{
+    border-bottom:1px solid var(--line);
+    padding:20px 0;
+  }
+  .nav{display:flex;justify-content:space-between;align-items:center;font-size:14px;}
+  .nav .name{font-family:'Fraunces',serif;font-weight:600;font-size:17px;}
+  .nav ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;}
+  .nav a{text-decoration:none;color:var(--muted);border-bottom:1px solid transparent;padding-bottom:2px;}
+  .nav a:hover{color:var(--ink);border-bottom-color:var(--brass);}
+
+  .hero{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:48px;
+    padding:64px 0 56px;
+    border-bottom:1px solid var(--line);
+    align-items:start;
+  }
+  .hero h1{
+    font-size:38px;
+    font-weight:400;
+    line-height:1.28;
+    margin:0 0 18px;
+    max-width:15ch;
+  }
+  .hero h1 em{font-style:italic;color:var(--brass);}
+  .hero p.lede{
+    font-size:16px;
+    color:var(--muted);
+    max-width:46ch;
+    margin:0;
+  }
+  .facts{
+    border-left:1px solid var(--line);
+    padding-left:28px;
+    font-size:14px;
+  }
+  .facts dt{color:var(--muted);margin-top:16px;}
+  .facts dt:first-child{margin-top:0;}
+  .facts dd{margin:2px 0 0;font-weight:500;}
+
+  /* ---- Sections ---- */
+  section{padding:52px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:28px;
+  }
+  .section-head h2{font-size:24px;font-weight:400;margin:0;}
+  .section-head .note{font-size:13px;color:var(--muted);}
+
+  /* ---- Skills ---- */
+  .skill-group{margin-bottom:22px;}
+  .skill-group:last-child{margin-bottom:0;}
+  .skill-group h3{
+    font-family:'Inter',sans-serif;
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--forest);
+    margin:0 0 10px;
+  }
+  .tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .tags span{
+    border:1px solid var(--line);
+    padding:6px 12px;
+    font-size:13.5px;
+    background:var(--panel);
+  }
+
+  /* ---- Projects ---- */
+  .project{
+    display:grid;
+    grid-template-columns:1fr 2.4fr;
+    gap:24px;
+    padding:24px 0;
+    border-top:1px solid var(--line);
+  }
+  .project:first-child{border-top:none;padding-top:0;}
+  .project .meta{font-size:13px;color:var(--muted);}
+  .project .meta .role{display:block;font-weight:600;color:var(--ink);margin-bottom:4px;font-family:'Fraunces',serif;font-size:16px;}
+  .project h4{margin:0 0 8px;font-size:17px;font-weight:600;font-family:'Inter',sans-serif;}
+  .project p{margin:0 0 10px;font-size:14.5px;color:#2c322b;}
+  .project .link{
+    font-size:13.5px;
+    text-decoration:none;
+    border-bottom:1px solid var(--brass);
+    color:var(--brass);
+  }
+
+  /* ---- Timeline (experience) ---- */
+  .tl-item{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:18px;
+    padding:16px 0;
+    border-top:1px solid var(--line);
+    font-size:14px;
+  }
+  .tl-item:first-child{border-top:none;}
+  .tl-item .when{color:var(--muted);}
+  .tl-item .what strong{font-weight:600;}
+  .tl-item .what span{color:var(--muted);display:block;font-size:13px;margin-top:2px;}
+
+  /* ---- Footer ---- */
+  footer{padding:40px 0 60px;}
+  footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:14px;}
+  footer a{text-decoration:none;border-bottom:1px solid var(--line);}
+  footer a:hover{border-bottom-color:var(--brass);}
+  .fine{color:var(--muted);font-size:12.5px;margin-top:26px;}
+
+  @media (max-width:720px){
+    .hero{grid-template-columns:1fr;}
+    .facts{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:20px;}
+    .project{grid-template-columns:1fr;}
+    .nav ul{gap:14px;}
+    .tl-item{grid-template-columns:110px 1fr;}
+  }
+  :focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <span class="name">Vivaan Mehta</span>
+    <ul>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero" style="border-bottom:1px solid var(--line);">
+    <div>
+      <h1>Finance and supply chain student who turns <em>market data</em> into decisions people can act on.</h1>
+      <p class="lede">I'm a sophomore at Rutgers Business School balancing coursework in finance and supply chain with hands‑on work in marketing analytics, operations strategy, and early‑stage startups — and I like building the tools that make that work easier.</p>
+    </div>
+    <dl class="facts">
+      <dt>Based in</dt>
+      <dd>New Brunswick, NJ</dd>
+      <dt>Studying</dt>
+      <dd>B.S. Finance &amp; Supply Chain, Rutgers Business School — Class of 2028</dd>
+      <dt>GPA</dt>
+      <dd>4.0 cumulative</dd>
+      <dt>Currently</dt>
+      <dd>Co‑Founder, Habit Tally</dd>
+      <dt>Reach me</dt>
+      <dd><a href="mailto:vivaan.mehta@rutgers.edu">vivaan.mehta@rutgers.edu</a></dd>
+    </dl>
+  </section>
+
+  <section id="skills">
+    <div class="section-head">
+      <h2>Skills</h2>
+      <span class="note">What I bring to a team</span>
+    </div>
+
+    <div class="skill-group">
+      <h3>Analysis &amp; Strategy</h3>
+      <div class="tags">
+        <span>Market Research</span>
+        <span>Campaign &amp; ROI Analysis</span>
+        <span>Financial Projections</span>
+        <span>Operations Planning</span>
+        <span>Excel</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Technical</h3>
+      <div class="tags">
+        <span>SQL</span>
+        <span>Python</span>
+        <span>JavaScript</span>
+        <span>HTML</span>
+        <span>GitHub</span>
+        <span>PowerPoint</span>
+        <span>Google Suite</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <div class="tags">
+        <span>English</span>
+        <span>Hindi</span>
+        <span>Gujarati</span>
+        <span>French (basic)</span>
+        <span>Spanish (basic)</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-head">
+      <h2>Projects</h2>
+      <span class="note">Things I've built and led</span>
+    </div>
+
+    <div class="project">
+      <div class="meta"><span class="role">Co‑Founder</span>Oct 2025 – Present</div>
+      <div>
+        <h4>Habit Tally</h4>
+        <p>A gamified habit‑tracking platform that uses behavioral incentives to keep users engaged and productive. Selected as 1 of 8 finalists out of 50+ teams in Rutgers Entrepreneurial Society's Shark Tank competition. Currently running market research and early financial projections to size demand and monetization paths.</p>
+        <a class="link" href="#">Add project link</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="meta"><span class="role">Strategy &amp; Marketing Intern</span>Nippon India Mutual Fund</div>
+      <div>
+        <h4>Social Media Performance Audit</h4>
+        <p>Audited 200+ financial‑literacy posts across Q1–Q2, analyzing CTR, CPM, and campaign cost data to surface engagement trends. The recommendations were adopted by the department manager and used to sharpen how the fund talks to Gen Z investors, backed by a 100+ respondent survey on investing behavior.</p>
+        <a class="link" href="#">Add writeup link</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="meta"><span class="role">Strategy &amp; Growth Associate</span>Uniforms Unlimited</div>
+      <div>
+        <h4>Manufacturing &amp; Export Strategy</h4>
+        <p>Planned a new manufacturing facility end‑to‑end — sourcing equipment and designing production workflows with company leadership — while introducing AI‑driven tools to cut manual work. Separately identified and engaged 10+ prospective wholesalers and traders across the U.S. and Middle East to open new export channels.</p>
+        <a class="link" href="#">Add reference link</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <span class="note">Full timeline</span>
+    </div>
+
+    <div class="tl-item">
+      <div class="when">Jun – Aug 2026</div>
+      <div class="what"><strong>Strategy &amp; Marketing Intern</strong> · Nippon India Mutual Fund<span>Mumbai, India</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="when">Jan – May 2026</div>
+      <div class="what"><strong>Strategy and Growth Associate</strong> · Uniforms Unlimited<span>Remote</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="when">Oct 2025 – Present</div>
+      <div class="what"><strong>Co‑Founder</strong> · Habit Tally<span>New Brunswick, NJ</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="when">Sep – Dec 2025</div>
+      <div class="what"><strong>Campus Ambassador</strong> · Uber<span>Drove 100+ Uber One for Students sign‑ups through two campus events</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="when">Aug 2025 – May 2028</div>
+      <div class="what"><strong>B.S. Finance &amp; Supply Chain</strong> · Rutgers Business School<span>4.0 GPA · Dean's List · Warden &amp; Scholarship Chair, Phi Delta Theta</span></div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="row">
+      <span>Soccer, judo, marathon running, rock climbing, poker, and vibe coding — usually in that order of intensity.</span>
+    </div>
+    <div class="row" style="margin-top:22px;">
+      <a href="mailto:vivaan.mehta@rutgers.edu">vivaan.mehta@rutgers.edu</a>
+      <a href="tel:+17328222304">+1 (732) 822 2304</a>
+      <a href="https://www.linkedin.com/in/vivaan-mehta" target="_blank" rel="noopener">linkedin.com/in/vivaan-mehta</a>
+    </div>
+    <p class="fine">© 2026 Vivaan Mehta. Built for the Personal Portfolio Website assignment.</p>
+  </footer>
+
+</div>
+</body>
+</html>
